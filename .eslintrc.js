@@ -1,3 +1,7 @@
 module.exports = {
-    "extends": "google"
+    "extends": "google",
+    "plugins": [
+        "react"
+    ],
+    "parser": "babel-eslint"
 };
