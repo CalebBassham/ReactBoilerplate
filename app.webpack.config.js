@@ -1,7 +1,8 @@
 const HtmlPlugin = require('html-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const prod = process.env.NODE_ENV === 'production';
 
@@ -55,4 +56,68 @@ if (prod) {
       parallel: true,
       sourceMap: false
     }))
+
+  module.exports.plugins.push(
+    new FaviconsWebpackPlugin({ // (see https://github.com/haydenbleasel/favicons#usage)
+      // Your source logo
+      logo: path.join(__dirname, 'client/favicon.png'),
+      // The prefix for all image files (might be a folder or a name)
+      prefix: 'icons/',
+      // Emit all stats of the generated icons
+      emitStats: false,
+      // The name of the json containing all favicon information
+      statsFilename: 'iconstats.json',
+      // Generate a cache file with control hashes and
+      // don't rebuild the favicons until those hashes change
+      persistentCache: false,
+      // Inject the html into the html-webpack-plugin
+      inject: true,
+      // favicon background color (see https://github.com/haydenbleasel/favicons#usage)
+      background: '#fff',
+      // favicon app title (see https://github.com/haydenbleasel/favicons#usage)
+      title: 'Title',
+  
+      // which icons should be generated 
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: true,
+        coast: false,
+        favicons: true,
+        firefox: true,
+        opengraph: false,
+        twitter: false,
+        yandex: false,
+        windows: true
+      }
+    })
+  )
+} else {
+  module.exports.plugins.push(
+    // Seperate config to reduce build time
+    new FaviconsWebpackPlugin({
+      logo: path.join(__dirname, 'client/favicon.png'),
+      prefix: 'icons/',
+      emitStats: false,
+      statsFilename: 'iconstats.json',
+      persistentCache: true,
+      inject: true,
+      background: '#fff',
+      title: 'Title',
+      logging: false,
+      
+      icons: {
+        android: false,
+        appleIcon: false,
+        appleStartup: false,
+        coast: false,
+        favicons: true,
+        firefox: false,
+        opengraph: false,
+        twitter: false,
+        yandex: false,
+        windows: false
+      }
+    })
+  )
 }

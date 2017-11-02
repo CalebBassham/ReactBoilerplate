@@ -3,7 +3,8 @@ This is a basic boiler plate to get you started with no extra to bloat it.
 
 ## Features
  * Hot reloads
- * SCSS support
+ * CSS & SCSS support
+ * Favicons (generates 37 different icons for iOS devices, Android devices and the Desktop browser and  JSON file with all information about the icons with favicons-webpack-plugin)
  * es2015
  * minification
  * mangle
