@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
+import { routes } from '../routes';
+
 export class App extends Component {
     render() {
         return(
-            <h1>&lt;Hello React World /&gt;</h1>
+            <div>
+                {routes}
+            </div>
         )
     }
 }

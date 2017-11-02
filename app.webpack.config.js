@@ -3,7 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
-const prod = process.env.NODE_ENV == 'prod';
+const prod = process.env.NODE_ENV === 'production';
 
 module.exports = {
   // Tell webpack to start bundling our app at app/index.js
