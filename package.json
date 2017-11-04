@@ -14,7 +14,7 @@
     "build:vendor": "npm run clean && webpack --config vendor.webpack.config.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "coverage": "jest --coverage"
+    "coverage": "rimraf coverage && jest --coverage"
   },
   "dependencies": {
     "react": "^16.0.0",
