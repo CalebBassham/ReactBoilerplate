@@ -10,6 +10,8 @@ This is a basic boiler plate to get you started with no extra to bloat it.
  * mangle
  * Webpack DLL plugin for super fast compilation time
  * basic eslint setup
+ * Testing with Jest and Enzyme
+ * Coverage reports with Jest
 
 ## Commands
 

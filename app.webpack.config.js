@@ -8,7 +8,7 @@ const prod = process.env.NODE_ENV === 'production';
 
 module.exports = {
   // Tell webpack to start bundling our app at app/index.js
-  entry: path.join(__dirname, 'client/index.js'),
+  entry: path.join(__dirname, 'src/index.js'),
   // Output our app to the dist/ directory
   output: {
     filename: 'app.js',
@@ -42,7 +42,7 @@ module.exports = {
       manifest: require('./dist/vendor-manifest.json')
     }),
     new HtmlPlugin({
-      template: path.join(__dirname, 'client/index.html'),
+      template: path.join(__dirname, 'src/index.html'),
       inject: 'body'
     })
   ]
@@ -60,7 +60,7 @@ if (prod) {
   module.exports.plugins.push(
     new FaviconsWebpackPlugin({ // (see https://github.com/haydenbleasel/favicons#usage)
       // Your source logo
-      logo: path.join(__dirname, 'client/favicon.png'),
+      logo: path.join(__dirname, 'src/favicon.png'),
       // The prefix for all image files (might be a folder or a name)
       prefix: 'icons/',
       // Emit all stats of the generated icons
@@ -96,7 +96,7 @@ if (prod) {
   module.exports.plugins.push(
     // Seperate config to reduce build time
     new FaviconsWebpackPlugin({
-      logo: path.join(__dirname, 'client/favicon.png'),
+      logo: path.join(__dirname, 'src/favicon.png'),
       prefix: 'icons/',
       emitStats: false,
       statsFilename: 'iconstats.json',
